@@ -1,3 +1,5 @@
+@file:Suppress("PreviewAnnotationInFunctionWithParameters")
+
 package net.ezra.ui.about
 
 import android.content.res.Configuration
@@ -17,7 +19,7 @@ import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_HOME
 
 
-
+@Preview(showBackground = true )
 @Composable
 fun AboutScreen(navController: NavHostController) {
 

@@ -3,6 +3,7 @@ package net.ezra.ui.auth
 
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -33,6 +34,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
 
     Column(
         modifier = Modifier
+            .background(color = Color.White)
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -40,7 +42,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
     ) {
 
         AuthHeader()
-        Text("Login", style = MaterialTheme.typography.h4)
+        Text("Login", style = MaterialTheme.typography.h2)
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
@@ -97,7 +99,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
                             popUpTo(ROUTE_LOGIN) { inclusive = true }
                         }
                     },
-                text = "go to register",
+                text = "sign up",
                 textAlign = TextAlign.Center,
                 color = androidx.compose.material3.MaterialTheme.colorScheme.onSurface
             )

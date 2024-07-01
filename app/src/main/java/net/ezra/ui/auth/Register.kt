@@ -1,6 +1,7 @@
 package net.ezra.ui.auth
 
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -31,6 +32,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
 
     Column(
         modifier = Modifier
+            .background(color = Color.White)
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -109,7 +111,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
                             popUpTo(ROUTE_REGISTER) { inclusive = true }
                         }
                     },
-                text = "go to login",
+                text = "login",
                 textAlign = TextAlign.Center,
                 color = androidx.compose.material3.MaterialTheme.colorScheme.onSurface
             )

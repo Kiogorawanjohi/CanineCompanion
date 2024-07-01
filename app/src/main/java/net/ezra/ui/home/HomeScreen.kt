@@ -1,3 +1,5 @@
+@file:Suppress("PreviewAnnotationInFunctionWithParameters")
+
 package net.ezra.ui.home
 
 
@@ -28,6 +30,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -46,6 +49,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -64,6 +68,7 @@ import net.ezra.navigation.ROUTE_VIEW_STUDENTS
 data class Screen(val title: String, val icon: Int)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "ResourceAsColor")
 @OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun HomeScreen(navController: NavHostController) {
 
@@ -86,7 +91,7 @@ fun HomeScreen(navController: NavHostController) {
                             Icon(
                                 Icons.Default.Menu,
                                 contentDescription = "Menu",
-                                tint = Color.White
+                                tint = Color.Black
                                 )
                         }
                     }
@@ -102,13 +107,13 @@ fun HomeScreen(navController: NavHostController) {
                         Icon(
                             imageVector = Icons.Filled.AccountCircle,
                             contentDescription = null,
-                            tint = Color.White
+                            tint = Color.Black
                         )
                     }
                 },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xFF000000),
                     titleContentColor = Color.White,
 
                 )
@@ -131,28 +136,31 @@ fun HomeScreen(navController: NavHostController) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(Color(0xff9AEDC9)),
+                        .background(Color(0xFF000000)),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
                     Text(
                         text = stringResource(id = R.string.call),
+                        color = Color.White,
                         fontSize = 20.sp,
                         modifier = Modifier
                             .padding(16.dp)
                             .clickable {
 
                                 val intent = Intent(Intent.ACTION_DIAL)
-                                intent.data = Uri.parse("tel:+254796759850")
+                                intent.data = Uri.parse("tel:+254718030774")
 
                                 callLauncher.launch(intent)
                             }
+
                     )
 
                     Text(
                         text = stringResource(id = R.string.developer),
                         fontSize = 20.sp,
+                        color = Color.White
                     )
 
                     Spacer(modifier = Modifier.height(15.dp))
@@ -168,7 +176,7 @@ fun HomeScreen(navController: NavHostController) {
                         text = "Login Here",
                         textAlign = TextAlign.Center,
                         fontSize = 20.sp,
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = Color.White
                     )
 
 
@@ -184,7 +192,7 @@ fun HomeScreen(navController: NavHostController) {
                         text = "Add Products",
                         textAlign = TextAlign.Center,
                         fontSize = 20.sp,
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = Color.White
                     )
 
                     Text(
@@ -198,7 +206,7 @@ fun HomeScreen(navController: NavHostController) {
                         text = "Add Students",
                         textAlign = TextAlign.Center,
                         fontSize = 20.sp,
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = Color.White
                     )
 
                     Text(
@@ -212,7 +220,7 @@ fun HomeScreen(navController: NavHostController) {
                         text = "view Products",
                         textAlign = TextAlign.Center,
                         fontSize = 20.sp,
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = Color.White
                     )
 
 
@@ -294,7 +302,7 @@ fun BottomBar(navController: NavHostController) {
     val selectedIndex = remember { mutableStateOf(0) }
     BottomNavigation(
         elevation = 10.dp,
-        backgroundColor = Color(0xff0FB06A)
+        backgroundColor = Color(0xFF000000)
 
 
     ) {
@@ -310,14 +318,18 @@ fun BottomBar(navController: NavHostController) {
             Icon(imageVector = Icons.Default.Favorite,"",tint = Color.White)
         },
             label = { Text(text = "Favorite",color =  Color.White) }, selected = (selectedIndex.value == 1), onClick = {
+                navController.navigate(ROUTE_SEARCH) {
+                    popUpTo(ROUTE_HOME) { inclusive = true }
+                }
+
 
             })
 
         BottomNavigationItem(icon = {
-            Icon(imageVector = Icons.Default.Person, "",tint = Color.White)
+            Icon(imageVector = Icons.Default.Search, "",tint = Color.White)
         },
             label = { Text(
-                text = "Students",
+                text = "search",
                 color =  Color.White) },
             selected = (selectedIndex.value == 2),
             onClick = {

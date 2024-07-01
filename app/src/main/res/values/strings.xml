@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">0796759850</string>
+    <string name="app_name">CanineCompanion</string>
     <string name="email">email</string>
     <string name="password">password</string>
     <string name="login">login</string>
@@ -12,10 +12,10 @@
     <string name="home">Home</string>
     <string name="about">about</string>
     <string name="logout">logout</string>
-    <string name="apen">Apen Softwares</string>
+    <string name="apen">CanineCompanion</string>
     <string name="add_stud">Student Registration</string>
     <string name="save_data">Save Student</string>
     <string name="select_image">Select Image</string>
-    <string name="developer">Developed with ❤ by Ezra</string>
+    <string name="developer">Developed with Kiogora Wanjohi</string>
     <string name="call">Call me 📲</string>
 </resources>

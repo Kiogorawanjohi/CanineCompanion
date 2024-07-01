@@ -111,7 +111,7 @@ fun Search(navController: NavHostController) {
 
 
                 colors = topAppBarColors(
-        containerColor = Color(0xff0FB06A),
+        containerColor = Color(0xFF000000),
 
 
         titleContentColor = Color.White,
@@ -123,7 +123,7 @@ fun Search(navController: NavHostController) {
             Column(
 
                 modifier = Modifier
-                    .background(Color(0xff9AEDC9))
+                    .background(Color(0xFF000000))
                     .fillMaxSize()
 
             ) {
@@ -133,7 +133,7 @@ fun Search(navController: NavHostController) {
                 TextField(
                     value = searchText,
                     onValueChange = { searchText = it },
-                    placeholder = { Text("Search by name..") },
+                    placeholder = { Text("Search for products companions and services..") },
                     modifier = Modifier.fillMaxWidth(),
                     trailingIcon = {
                         Icon(imageVector = Icons.Default.Search,
