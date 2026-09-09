@@ -18,6 +18,7 @@ import net.ezra.ui.home.HomeScreen
 import net.ezra.ui.products.AddProductScreen
 import net.ezra.ui.products.ProductDetailScreen
 import net.ezra.ui.products.ProductListScreen
+import net.ezra.ui.statements.AccountStatementsScreen
 import net.ezra.ui.students.AddStudents
 import net.ezra.ui.students.Search
 import net.ezra.ui.students.Students
@@ -91,6 +92,11 @@ fun AppNavHost(
             ProductListScreen(navController = navController, products = listOf() )
         }
 
+
+
+        composable(ROUTE_STATEMENTS) {
+            AccountStatementsScreen(navController = navController)
+        }
 
 
         composable("productDetail/{productId}") { backStackEntry ->

@@ -18,6 +18,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Refresh
@@ -49,6 +50,7 @@ import com.google.firebase.firestore.firestore
 import net.ezra.navigation.ROUTE_ADD_STUDENTS
 import net.ezra.navigation.ROUTE_DASHBOARD
 import net.ezra.navigation.ROUTE_HOME
+import net.ezra.navigation.ROUTE_STATEMENTS
 
 
 private var progressDialog: ProgressDialog? = null
@@ -164,6 +166,14 @@ fun DashboardScreen(navController: NavHostController)  {
                                     badgeCount = 4,
                                     onClick = {
                                         // Navigate to messages screen
+                                    }
+                                ),
+                                DashboardItemData(
+                                    title = "Account Statements",
+                                    icon = Icons.Default.List,
+                                    badgeCount = 0,
+                                    onClick = {
+                                        navController.navigate(ROUTE_STATEMENTS)
                                     }
                                 ),
                                 // Add more dashboard items as needed
